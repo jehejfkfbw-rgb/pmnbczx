@@ -1,0 +1,23 @@
+{% extends "base.html" %}{% block title %}Nova Digital | حلول رقمية{% endblock %}
+{% block content %}
+<section class="hero"><div class="eyebrow">DIGITAL SOLUTIONS • NOVA DIGITAL</div><h1>نحوّل أفكارك<br><span>إلى واقع رقمي.</span></h1>
+<p>نطوّر المواقع والمتاجر والأنظمة الرقمية، ونساعدك على بناء حضور احترافي على الإنترنت.</p><a class="btn" href="#contact">ابدأ مشروعك ←</a></section>
+<section id="services" class="section"><h2>خدماتنا</h2><p class="muted">حلول مرنة تناسب مشروعك من الفكرة إلى الإطلاق.</p>
+<div class="cards">
+<article class="service"><b>01</b><h3>تصميم وتطوير المواقع</h3><p>مواقع سريعة ومتجاوبة مع الهاتف والكمبيوتر.</p></article>
+<article class="service"><b>02</b><h3>المتاجر الإلكترونية</h3><p>تجربة تسوّق منظمة وقابلة للتوسع.</p></article>
+<article class="service"><b>03</b><h3>التصميم والإعلانات</h3><p>هوية بصرية ومحتوى إعلاني مميز.</p></article>
+<article class="service"><b>04</b><h3>البرمجيات المخصصة</h3><p>أنظمة ولوحات تحكم حسب احتياج العمل.</p></article>
+<article class="service"><b>05</b><h3>إدارة صفحات التواصل</h3><p>تنظيم المحتوى وتحسين الحضور الرقمي.</p></article>
+<article class="service"><b>06</b><h3>حلول الذكاء الاصطناعي</h3><p>مساعدون وأتمتة لمهام العمل.</p></article>
+</div></section>
+<section id="contact" class="section contact"><h2>احكِ لنا عن مشروعك</h2><p class="muted">أرسل طلبك وسيظهر في لوحة المطوّر.</p>
+{% if request.query_params.get('sent') %}<p class="success">تم إرسال الطلب بنجاح.</p>{% endif %}
+<form method="post" action="/contact" class="form">
+<input type="hidden" name="csrf" value="{{ csrf }}">
+<label>الاسم<input name="name" maxlength="100" required></label>
+<label>البريد الإلكتروني<input type="email" name="email" maxlength="200" required></label>
+<label>الخدمة المطلوبة<select name="service" required><option value="">اختر الخدمة</option><option>تصميم موقع</option><option>متجر إلكتروني</option><option>تصميم وإعلانات</option><option>برمجيات مخصصة</option><option>إدارة صفحات</option><option>حلول ذكاء اصطناعي</option><option>خدمة أخرى</option></select></label>
+<label>تفاصيل المشروع<textarea name="details" rows="5" maxlength="5000" required></textarea></label>
+<button class="btn" type="submit">إرسال الطلب</button></form></section>
+{% endblock %}

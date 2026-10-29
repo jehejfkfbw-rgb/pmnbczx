@@ -1,0 +1,9 @@
+{% extends "base.html" %}{% block title %}دخول المطوّر | Nova Digital{% endblock %}
+{% block content %}<section class="auth"><div class="eyebrow">PRIVATE DEVELOPER PORTAL</div><h1>لوحة المطوّر</h1><p class="muted">منطقة إدارية محمية. سجّل الدخول للمتابعة.</p>
+{% if error %}<p class="error">{{ error }}</p>{% endif %}
+<form method="post" action="/admin/login" class="form">
+<input type="hidden" name="csrf" value="{{ csrf }}">
+<label>اسم المستخدم<input name="username" autocomplete="username" required></label>
+<label>كلمة المرور<input type="password" name="password" autocomplete="current-password" required></label>
+<button class="btn" type="submit">تسجيل الدخول</button></form>
+<p class="muted small">لا تشارك بيانات الدخول، ولا تضع ملف .env داخل مجلد الملفات العامة.</p></section>{% endblock %}

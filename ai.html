@@ -1,0 +1,5 @@
+{% extends "base.html" %}{% block title %}مساعد Nova المحلي{% endblock %}
+{% block content %}<section class="auth wide"><div class="eyebrow">LOCAL AI WORKSPACE</div><h1>مساعد Nova المحلي</h1><p class="muted">تُرسل المهمة إلى Ollama على الجهاز/الخادم المحلي، وليس إلى واجهة AI سحابية.</p>
+<form method="post" action="/admin/ai" class="form"><input type="hidden" name="csrf" value="{{ csrf }}"><label>ما المهمة التي تريد المساعدة فيها؟<textarea name="prompt" rows="6" maxlength="6000" required>{{ prompt }}</textarea></label><button class="btn">تشغيل المساعد</button></form>
+{% if error %}<p class="error">{{ error }}</p>{% endif %}{% if answer %}<h2>النتيجة</h2><pre class="answer">{{ answer }}</pre>{% endif %}
+<a href="/admin/dashboard">← العودة إلى لوحة المطوّر</a></section>{% endblock %}
